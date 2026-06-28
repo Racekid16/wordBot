@@ -1,4 +1,4 @@
-import type { CommandInteraction, ComponentInteraction } from "oceanic.js";
+import { Constants, type CommandInteraction, type ComponentInteraction } from "oceanic.js";
 import { verbalTestManager } from "../classes/managers/verbalTestManager.ts";
 import { verbalDuelManager } from "../classes/managers/verbalDuelManager.ts";
 import { VerbalDuel } from "../classes/verbalDuel.ts";
@@ -17,7 +17,7 @@ export default {
         if (interaction.user.id !== userId) {
             await interaction.createMessage({
                 content: "This is not your test!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }
@@ -26,7 +26,7 @@ export default {
         if (!test) {
             await interaction.createMessage({
                 content: "This test has expired or already ended.",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }

@@ -22,7 +22,7 @@ export default {
         if (verbalTestManager.get(interaction.user.id)) {
             await interaction.createMessage({
                 content: "You already have an ongoing test!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }
@@ -37,7 +37,7 @@ export default {
         if (opponent.id === interaction.user.id) {
             await interaction.createMessage({
                 content: "You cannot challenge yourself!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }
@@ -45,7 +45,7 @@ export default {
         if (verbalTestManager.get(opponent.id)) {
             await interaction.createMessage({
                 content: "The challenged user already has an ongoing test!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }

@@ -15,7 +15,7 @@ export default {
         if (interaction.user.id !== opponentId) {
             await interaction.createMessage({
                 content: "You are not the challenged user!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }
@@ -23,7 +23,7 @@ export default {
         if (verbalTestManager.get(challengerId) || verbalTestManager.get(opponentId)) {
             await interaction.createMessage({
                 content: "One of the users already has an ongoing test!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }
@@ -58,7 +58,7 @@ async function acceptVerbalDuel(interaction: ComponentInteraction) {
     } catch (err) {
         await interaction.reply({
             content: "I don't have the necessary permissions to run duels 😭\nPlease ensure I have: Send Messages, Create Public Threads, Send Messages in Threads, and Manage Threads.",
-            flags: 64,
+            flags: Constants.MessageFlags.EPHEMERAL,
         });
         return;
     }

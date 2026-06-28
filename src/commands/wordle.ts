@@ -21,7 +21,7 @@ export default {
         if (word === "") {
             await interaction.reply({
                 content: "Invalid number!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
             return;
         }

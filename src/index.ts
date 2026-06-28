@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { Client } from "oceanic.js";
+import { Client, Constants } from "oceanic.js";
 import { loadAndRegisterAllCommands, getCommand } from "./utils/registerCommands.ts";
 import { loadAllComponentHandlers, getComponentHandler } from "./utils/loadComponentHandlers.ts"
 
@@ -47,7 +47,7 @@ client.on("interactionCreate", async (interaction) => {
         if (!interaction.acknowledged && interaction.isCommandInteraction()) {
             await interaction.reply({
                 content: "An error occurred!",
-                flags: 64,
+                flags: Constants.MessageFlags.EPHEMERAL,
             });
         }
     }
